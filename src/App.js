@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import Header from './conponents/Header';
-import Products from './conponents/Products';
+// import Products from './conponents/Products';
 import Message from './conponents/Message';
-import Cart from './conponents/Cart';
+// import Cart from './conponents/Cart';
 import Footer from './conponents/Footer';
+import ProductsContainer from './containers/ProductsContainer';
+import CartContainer from './containers/CartContainer';
+
 class App extends Component {
   render() {
     return (
@@ -16,13 +19,13 @@ class App extends Component {
             <div className="container">
 
                 {/* <!-- Products --> */}
-                <Products />
+                <ProductsContainer />
 
                 {/* <!-- Message --> */}
                 <Message />
 
                 {/* <!-- Cart --> */}
-                <Cart />
+                <CartContainer />
             </div>
         </main>
 
