@@ -1,19 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import Header from './conponents/Header';
+import Products from './conponents/Products';
+import Message from './conponents/Message';
+import Cart from './conponents/Cart';
+import Footer from './conponents/Footer';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <div>
+
+        {/* <!-- Header --> */}
+        <Header />
+        
+        <main id="mainContainer">
+            <div className="container">
+
+                {/* <!-- Products --> */}
+                <Products />
+
+                {/* <!-- Message --> */}
+                <Message />
+
+                {/* <!-- Cart --> */}
+                <Cart />
+            </div>
+        </main>
+
+        {/* <!-- Footer --> */}
+        <Footer />
+    </div>
     );
   }
 }
