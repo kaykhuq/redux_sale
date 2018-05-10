@@ -18,23 +18,26 @@ class CartContainer extends Component {
       );
    }
    showCartItem = (cart) => {
-      var result = Message.MSG_CART_EMPTY;
+      var { onDeleteProductInCart, onChangeMessage } = this.props;
+      var result = <tr><td>{Message.MSG_CART_EMPTY}</td></tr>;
       if (cart.length > 0) {
          result = cart.map((item, index) => {
             return <CartItem
                key={index}
                item={item}
                index={index}
+               onDeleteProductInCart={onDeleteProductInCart}
+               onChangeMessage={onChangeMessage}
             />
          })
       }
       return result;
    }
-   showTotalAmount=(cart)=>{
-      var result=null;
-      if(cart.length>0){
-         result= <CartResult cart={cart} />
-         
+   showTotalAmount = (cart) => {
+      var result = null;
+      if (cart.length > 0) {
+         result = <CartResult cart={cart} />
+
       }
       return result;
    }
@@ -65,8 +68,11 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch, props) => {
    return {
-      onAddToCart: (cart) => {
-         dispatch(actions.actAddToCart(cart))
+      onDeleteProductInCart: (product) => {
+         dispatch(actions.actRemoveProductInCart(product));
+      },
+      onChangeMessage: (message) => {
+         dispatch(actions.actChangeMessage(message));
       }
    }
 }
